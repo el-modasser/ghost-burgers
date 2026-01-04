@@ -3,9 +3,9 @@ import { BrandConfig } from '@/types';
 export const BRAND_CONFIG: BrandConfig = {
     id: 'ghost-burgers',
     name: 'Ghost Burgers',
-    name_ar: 'مطعم إستو التجريبي',
+    name_ar: 'مطعم غوست برجرز',
     description: 'Delicious Burgers, Amazing Fries, and More!',
-    description_ar: 'طعام لذيذ يقدم طازجًا يوميًا',
+    description_ar: 'طعام لذيذ يقدم طازجًا يوميًا ومشروبات جذابة',
 
     colors: {
         primary: '#ED1C24',
@@ -46,8 +46,8 @@ export const BRAND_CONFIG: BrandConfig = {
             id: 'main',
             name: 'Main Branch',
             name_ar: 'الفرع الرئيسي',
-            whatsappNumber: '+1234567890',
-            address: '123 Main Street, City, Country'
+            whatsappNumber: '+254795692258',
+            address: 'Westfield Mbaazi'
         }
     ],
     defaultBranch: 'main',
@@ -65,10 +65,10 @@ export const BRAND_CONFIG: BrandConfig = {
     },
 
     contact: {
-        whatsappNumber: '+1234567890',
+        whatsappNumber: '+254795692258',
         whatsappMessage: {
-            en: "Hello! I'd like to place an order from Esto Demo Restaurant.\n\n",
-            ar: "مرحباً! أود تقديم طلب من مطعم إستو التجريبي.\n\n"
+            en: "Hello! I'd like to place an order from Ghost Burgers.\n\n",
+            ar: "مرحباً! أود تقديم طلب من مطعم غوست برجرز.\n\n"
         }
     },
 

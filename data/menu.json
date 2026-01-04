@@ -7,7 +7,7 @@
           "name": "Prince Hamlet",
           "description": "Classic OG smash, cheddar with Ghost sauce.",
           "price": 1100,
-          "image": "",
+          "image": "prince-hamlet.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -32,7 +32,7 @@
           "name": "King Hamlet",
           "description": "OG smash stacked with caramelised onions and Ghost sauce.",
           "price": 1150,
-          "image": "",
+          "image": "king-hamlet.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -58,7 +58,7 @@
           "description": "Onion jam, cheddar cheese, and The OJ sauce.",
           "price": 1150,
           "tag": { "text": "Best Seller", "text_ar": "الأكثر مبيعاً", "variant": "best_seller" },
-          "image": "",
+          "image": "the-candyman.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -83,7 +83,7 @@
           "name": "Smokelahoma",
           "description": "Oklahoma-style burger with grilled onions pressed into the patty, swiss cheese, and Ghost sauce.",
           "price": 1200,
-          "image": "",
+          "image": "smokelahoma.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -108,7 +108,7 @@
           "name": "The Phantom",
           "description": "Mushroom medley, Swiss cheese and Phantom sauce.",
           "price": 1200,
-          "image": "",
+          "image": "the-phantom.png",
           "tag": { "text": "Most Ordered", "text_ar": "الأكثر مبيعاً", "variant": "most_ordered" },
           "modifiers": {
             "fries": {
@@ -134,7 +134,7 @@
           "name": "The Phantom XL",
           "description": "The Phantom with Carmalised Onions",
           "price": 1250,
-          "image": "",
+          "image": "the-phantom-xl.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -166,7 +166,7 @@
           "name": "Casper",
           "description": "Crispy golden chicken, mayo, lettuce, pickles, and tomato.",
           "price": 1200,
-          "image": "",
+          "image": "casper.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -183,7 +183,7 @@
           "name": "Ghost Buster",
           "description": "Nashville-style chicken, pickles, Nash sauce, and Ghost apple slaw.",
           "price": 1350,
-          "image": "",
+          "image": "ghost-buster.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -200,7 +200,7 @@
           "name": "V For Vendetta",
           "description": "Sweet & sour Korean chicken, sesame seeds, and Ghost slaw.",
           "price": 1350,
-          "image": "",
+          "image": "v-for-vendetta.png",
           "modifiers": {
             "fries": {
               "name": "Fries",
@@ -224,25 +224,25 @@
           "name": "Original Fries",
           "description": "Golden, crispy, salted perfection.",
           "price": 300,
-          "image": ""
+          "image": "original-fries.png"
         },
         {
           "name": "Spicy Cajun Fries",
           "description": "Dusted in Cajun fire.",
           "price": 300,
-          "image": ""
+          "image": "spicy-cajun-fries.png"
         },
         {
           "name": "Nash Style Loaded Fries",
           "description": "Spicy fries, shredded Nash chicken, Nash sauce, pickles, Ghost slaw.",
           "price": 950,
-          "image": ""
+          "image": "nash-style-loaded-fries.png"
         },
         {
           "name": "Korean Style Loaded Fries",
           "description": "Original fries, Korean chicken, Ghost slaw, creamy white sauce.",
           "price": 950,
-          "image": ""
+          "image": "korean-style-loaded-fries.png"
         },
         {
           "name": "Beef Loaded Fries",
@@ -279,19 +279,19 @@
           "name": "Ghost Ghohito Special",
           "description": "Chilly popsicles and a dry ice ghohito.",
           "price": 650,
-          "image": ""
+          "image": "ghost-ghohito-special.png"
         },
         {
           "name": "Sweetly Hallows – Passion Mojito",
           "description": "Tropical, zesty, and refreshing.",
           "price": 600,
-          "image": ""
+          "image": "sweetly-hallows-passion-mojito.png"
         },
         {
           "name": "Bloody Mary – Strawberry Mojito",
           "description": "Sweet rebellion with a cool twist.",
           "price": 600,
-          "image": ""
+          "image": "bloody-mary-strawberry-mojito.png"
         }
       ]
     },

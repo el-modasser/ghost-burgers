@@ -127,7 +127,7 @@ export function MenuItemCard({
             transition={enableAnimations ? { duration: 0.3 } : undefined}
             whileHover={enableAnimations ? { y: -4 } : undefined}
             onClick={() => onItemClick(item, categoryId)}
-            className="bg-white rounded-2xl grid grid-cols-3 justify-between shadow-lg overflow-hidden cursor-pointer border border-gray-200 hover:border-primary/30 transition-all"
+            className="bg-white relative rounded-2xl grid grid-cols-3 justify-between shadow-lg overflow-hidden cursor-pointer border border-gray-200 hover:border-primary/30 transition-all"
         >
 
 
@@ -159,7 +159,7 @@ export function MenuItemCard({
 
                 {/* Tag under description (relative/in-flow). If description is hidden, show under name. */}
                 {item.tag && (
-                    <div className={showDescription ? '-mt-2 mb-3' : 'mt-2 mb-3'}>
+                    <div className=' absolute bottom-2 left-5 z-50'>
                         <TagBadge tag={item.tag} language={language} />
                     </div>
                 )}

@@ -35,7 +35,7 @@ export function Header({
 
     return (
         <header
-            className="absolute top-2 right-1 z-50  backdrop-blur-sm border-b border-gray-200"
+            className="absolute top-2 right-1 z-50"
         // style={{ backgroundColor: colors.background }}
         >
             <div className="container mx-auto px-4 py-2">

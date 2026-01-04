@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Check, X, Plus, Minus } from 'lucide-react'
-import { AnimatePresence, animate, motion, useDragControls, useMotionValue, type PanInfo } from 'framer-motion'
+import { AnimatePresence, animate, motion, useDragControls, useMotionValue, useTransform, type PanInfo } from 'framer-motion'
 import { MenuItem, MenuItemOption } from '@/types'
 import { getText, getItemPrice, formatPrice } from '@/lib/menu.utils'
 import { ModifiersSelector } from './ModifiersSelector'
@@ -60,6 +60,13 @@ export function ItemModal({
     const dragControls = useDragControls()
     const y = useMotionValue(0)
     const closeAnimRef = useRef<ReturnType<typeof animate> | null>(null)
+    const closedYRef = useRef(1000)
+
+    const overlayOpacity = useTransform(y, (latest) => {
+        const closed = closedYRef.current || 1
+        const t = Math.min(1, Math.max(0, latest / closed))
+        return 1 - t
+    })
 
     const [selectedOption, setSelectedOption] = useState<MenuItemOption | undefined>(undefined)
     const [selectedModifiers, setSelectedModifiers] = useState<Record<string, string[]>>({})
@@ -104,7 +111,8 @@ export function ItemModal({
         setActive({ item, categoryId })
         setPresent(true)
         // Start closed then open deterministically (no overshoot).
-        y.set(getClosedY())
+        closedYRef.current = getClosedY()
+        y.set(closedYRef.current)
         // Next frame ensures layout is ready before animating.
         requestAnimationFrame(() => snapToOpen())
     }, [isOpen, item, categoryId, getClosedY, snapToOpen, y])
@@ -207,10 +215,7 @@ export function ItemModal({
             {present && (
                 <>
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        style={{ opacity: overlayOpacity }}
                         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
                         onClick={onClose}
                     />

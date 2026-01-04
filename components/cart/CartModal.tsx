@@ -8,7 +8,7 @@ import { BranchSelection } from './BranchSelection'
 import { Button } from '@/components/ui/Button'
 import { useWhatsApp } from '@/hooks/useWhatsApp'
 import { cn } from '@/lib/utils'
-import { AnimatePresence, animate, motion, useDragControls, useMotionValue } from 'framer-motion'
+import { AnimatePresence, animate, motion, useDragControls, useMotionValue, useTransform } from 'framer-motion'
 
 interface CartModalProps {
     isOpen: boolean
@@ -56,6 +56,13 @@ export function CartModal({
     const y = useMotionValue(0)
     const closeAnimRef = useRef<ReturnType<typeof animate> | null>(null)
     const isClosingRef = useRef(false)
+    const closedYRef = useRef(1000)
+
+    const overlayOpacity = useTransform(y, (latest) => {
+        const closed = closedYRef.current || 1
+        const t = Math.min(1, Math.max(0, latest / closed))
+        return 1 - t
+    })
 
     const totalItems = useMemo(() => cart.reduce((sum, item) => sum + item.quantity, 0), [cart])
     const totalPrice = useMemo(() => cart.reduce((sum, item) => sum + (item.price * item.quantity), 0), [cart])
@@ -103,7 +110,8 @@ export function CartModal({
         if (!isOpen) return
         isClosingRef.current = false
         setPresent(true)
-        y.set(getClosedY())
+        closedYRef.current = getClosedY()
+        y.set(closedYRef.current)
         requestAnimationFrame(() => snapToOpen())
     }, [getClosedY, isOpen, snapToOpen, y])
 
@@ -161,10 +169,7 @@ export function CartModal({
             {present && (
                 <>
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        style={{ opacity: overlayOpacity }}
                         className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
                         onClick={requestClose}
                     />

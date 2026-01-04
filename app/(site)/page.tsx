@@ -13,6 +13,7 @@ import { useCart } from '@/hooks/useCart'
 import { useMenu } from '@/hooks/useMenu'
 import { BRAND_CONFIG } from '@/config/brand'
 import menuData from '@/data/menu.json'
+import Image from 'next/image'
 
 export default function HomePage() {
     const [language, setLanguage] = useState<'en' | 'ar'>(BRAND_CONFIG.defaultLanguage as 'en' | 'ar')
@@ -97,20 +98,38 @@ export default function HomePage() {
             />
 
             {BRAND_CONFIG.features.enableHeroImage && (
-                <div
-                    className="h-64 md:h-80 bg-linear-to-r from-primary/20 to-secondary/20 flex items-center justify-center"
-                    style={{ backgroundColor: BRAND_CONFIG.colors.primary + '20' }}
-                >
-                    <div className="text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            {language === 'ar' && BRAND_CONFIG.name_ar ? BRAND_CONFIG.name_ar : BRAND_CONFIG.name}
-                        </h1>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            {language === 'ar' && BRAND_CONFIG.description_ar
-                                ? BRAND_CONFIG.description_ar
-                                : BRAND_CONFIG.description}
-                        </p>
-                    </div>
+                <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden bg-gray-100">
+                    {/* Subtle brand tint overlay */}
+                    <div
+                        className="absolute inset-0 z-10 bg-linear-to-r from-primary/10 via-transparent to-secondary/10"
+                        aria-hidden
+                    />
+
+                    {/* Mobile hero */}
+                    <Image
+                        src="/images/hero/mob.png"
+                        alt={BRAND_CONFIG.name}
+                        fill
+                        priority
+                        sizes="(max-width: 767px) 100vw, 0px"
+                        className="object-cover md:hidden"
+                    />
+
+                    {/* Desktop hero */}
+                    <Image
+                        src="/images/hero/desk.png"
+                        alt={BRAND_CONFIG.name}
+                        fill
+                        priority
+                        sizes="(min-width: 768px) 100vw, 0px"
+                        className="hidden object-cover md:block"
+                    />
+
+                    {/* Bottom fade for nicer transition into content */}
+                    <div
+                        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-linear-to-b from-transparent to-background"
+                        aria-hidden
+                    />
                 </div>
             )}
 
@@ -198,9 +217,8 @@ export default function HomePage() {
 
             <Footer
                 language={language}
-                brandName={BRAND_CONFIG.name}
-                brandNameAr={BRAND_CONFIG.name_ar}
-                footer={BRAND_CONFIG.footer}
+                config={BRAND_CONFIG}
+                reserveBottomSpace={isOrderMode && BRAND_CONFIG.features.enableCart && getTotalItems() > 0}
             />
         </div>
     )

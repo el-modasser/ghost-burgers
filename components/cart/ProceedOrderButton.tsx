@@ -24,7 +24,8 @@ export function ProceedOrderButton({
     return (
         <motion.div
 
-            className="fixed bottom-6  w-full  z-40"
+            className="fixed inset-x-0 z-40"
+            style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
         >
             <button
                 onClick={onClick}
