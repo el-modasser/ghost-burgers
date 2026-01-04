@@ -4,6 +4,8 @@ import { getText, getItemPrice } from './menu.utils'
 export function composeWhatsAppMessage(
     cart: CartItem[],
     orderNotes: string,
+    orderType: 'pickup' | 'delivery',
+    deliveryAddress: string,
     language: string,
     currency: BrandConfig['currency'],
     selectedBranch: string,
@@ -22,6 +24,17 @@ export function composeWhatsAppMessage(
         message += `${language === 'en' ? 'Branch' : 'الفرع'}: ${branchName}\n`
         message += `${language === 'en' ? 'Address' : 'العنوان'}: ${branch.address}\n\n`
     }
+
+    message += `${language === 'en' ? 'Order type' : 'نوع الطلب'}: ${orderType === 'delivery'
+        ? (language === 'en' ? 'Delivery' : 'توصيل')
+        : (language === 'en' ? 'Pickup' : 'استلام')
+        }\n`
+
+    if (orderType === 'delivery' && deliveryAddress.trim()) {
+        message += `${language === 'en' ? 'Delivery address' : 'عنوان التوصيل'}: ${deliveryAddress.trim()}\n`
+    }
+
+    message += `\n`
 
     message += `*${language === 'en' ? 'Order Details' : 'تفاصيل الطلب'}:*\n`
     message += `${language === 'en' ? '====================' : '════════════════════'}\n\n`

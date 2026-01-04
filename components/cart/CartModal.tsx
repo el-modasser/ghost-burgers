@@ -1,11 +1,12 @@
 'use client'
 
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { ShoppingCart, MessageCircle, Trash2 } from 'lucide-react'
+import { ShoppingCart, MessageCircle, Trash2, MapPin, Truck, Store } from 'lucide-react'
 import { CartItem, BrandConfig, MenuData } from '@/types'
 import { CartItem as CartItemComponent } from './CartItem'
 import { BranchSelection } from './BranchSelection'
 import { Button } from '@/components/ui/Button'
+import { Input } from '@/components/ui/Input'
 import { useWhatsApp } from '@/hooks/useWhatsApp'
 import { cn } from '@/lib/utils'
 import { AnimatePresence, animate, motion, useDragControls, useMotionValue, useTransform } from 'framer-motion'
@@ -49,6 +50,10 @@ export function CartModal({
 }: CartModalProps) {
     const { sendOrder, isSending } = useWhatsApp()
     const [showNotes, setShowNotes] = useState(false)
+    const [orderType, setOrderType] = useState<'pickup' | 'delivery'>('pickup')
+    const [deliveryAddress, setDeliveryAddress] = useState('')
+    const [showDeliveryValidation, setShowDeliveryValidation] = useState(false)
+    const deliveryRef = useRef<HTMLDivElement | null>(null)
 
     // Bottom-sheet behavior (same engine as ItemModal)
     const [present, setPresent] = useState(false)
@@ -110,6 +115,10 @@ export function CartModal({
         if (!isOpen) return
         isClosingRef.current = false
         setPresent(true)
+        setShowNotes(false)
+        setOrderType('pickup')
+        setDeliveryAddress('')
+        setShowDeliveryValidation(false)
         closedYRef.current = getClosedY()
         y.set(closedYRef.current)
         requestAnimationFrame(() => snapToOpen())
@@ -141,9 +150,17 @@ export function CartModal({
     }, [isOpen, present, snapToClosed, y])
 
     const handleSendOrder = async () => {
+        if (orderType === 'delivery' && !deliveryAddress.trim()) {
+            setShowDeliveryValidation(true)
+            deliveryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            return
+        }
+
         await sendOrder(
             cart,
             orderNotes,
+            orderType,
+            deliveryAddress,
             language,
             currency,
             selectedBranch,
@@ -251,6 +268,71 @@ export function CartModal({
                                             />
                                         )}
 
+                                        {/* Pickup / Delivery */}
+                                        <div className="rounded-2xl border border-gray-200 bg-white p-4">
+                                            <div className="flex items-center justify-between gap-3 mb-3">
+                                                <div className="text-sm font-semibold text-gray-900">
+                                                    {language === 'en' ? 'Order type' : 'نوع الطلب'}
+                                                </div>
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-2">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setOrderType('pickup')
+                                                        setShowDeliveryValidation(false)
+                                                    }}
+                                                    className={cn(
+                                                        'flex items-center justify-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold border transition-colors',
+                                                        orderType === 'pickup'
+                                                            ? 'bg-primary text-white border-primary'
+                                                            : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                                                    )}
+                                                >
+                                                    <Store className="h-4 w-4" />
+                                                    {language === 'en' ? 'Pickup' : 'استلام'}
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setOrderType('delivery')}
+                                                    className={cn(
+                                                        'flex items-center justify-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold border transition-colors',
+                                                        orderType === 'delivery'
+                                                            ? 'bg-secondary text-white border-secondary'
+                                                            : 'bg-white text-gray-900 border-gray-200 hover:bg-gray-50'
+                                                    )}
+                                                >
+                                                    <Truck className="h-4 w-4" />
+                                                    {language === 'en' ? 'Delivery' : 'توصيل'}
+                                                </button>
+                                            </div>
+
+                                            {orderType === 'delivery' && (
+                                                <div ref={deliveryRef} className="mt-4">
+                                                    <Input
+                                                        value={deliveryAddress}
+                                                        onChange={(e) => {
+                                                            setDeliveryAddress(e.target.value)
+                                                            if (showDeliveryValidation) setShowDeliveryValidation(false)
+                                                        }}
+                                                        placeholder={
+                                                            language === 'en'
+                                                                ? 'Delivery destination (building, street, area...)'
+                                                                : 'وجهة التوصيل (المبنى، الشارع، المنطقة...)'
+                                                        }
+                                                        label={language === 'en' ? 'Delivery destination *' : 'وجهة التوصيل *'}
+                                                        icon={<MapPin className="h-4 w-4" />}
+                                                        error={
+                                                            showDeliveryValidation && !deliveryAddress.trim()
+                                                                ? (language === 'en' ? 'Delivery destination is required.' : 'وجهة التوصيل مطلوبة.')
+                                                                : undefined
+                                                        }
+                                                    />
+                                                </div>
+                                            )}
+                                        </div>
+
                                         <div className="space-y-4">
                                             {cart.map((item) => (
                                                 <CartItemComponent
@@ -332,7 +414,7 @@ export function CartModal({
                                                 variant="primary"
                                                 loading={isSending}
                                                 className="flex-1"
-                                                disabled={cart.length === 0}
+                                                disabled={cart.length === 0 || (orderType === 'delivery' && !deliveryAddress.trim())}
                                             >
                                                 <MessageCircle className="w-4 h-4 mr-2" />
                                                 {language === 'en' ? 'Send Order' : 'إرسال الطلب'}

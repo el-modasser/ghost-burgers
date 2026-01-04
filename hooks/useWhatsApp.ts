@@ -8,6 +8,8 @@ export function useWhatsApp() {
     const sendOrder = async (
         cart: CartItem[],
         orderNotes: string,
+        orderType: 'pickup' | 'delivery',
+        deliveryAddress: string,
         language: string,
         currency: BrandConfig['currency'],
         selectedBranch: string,
@@ -25,6 +27,8 @@ export function useWhatsApp() {
             const message = composeWhatsAppMessage(
                 cart,
                 orderNotes,
+                orderType,
+                deliveryAddress,
                 language,
                 currency,
                 selectedBranch,
