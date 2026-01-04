@@ -33,8 +33,15 @@ export function useWhatsApp() {
             )
 
             const branch = branches.find(b => b.id === selectedBranch)
-            const phoneNumber = branch?.whatsappNumber.replace(/\s/g, '') || ''
-            const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${message}`
+            const rawNumber = branch?.whatsappNumber || ''
+            const digitsOnly = rawNumber.replace(/[^\d]/g, '')
+
+            if (!digitsOnly) {
+                alert(language === 'en' ? 'Missing WhatsApp number for this branch.' : 'رقم واتساب غير متوفر لهذا الفرع.')
+                return
+            }
+
+            const whatsappUrl = `https://wa.me/${digitsOnly}?text=${message}`
 
             // Open WhatsApp in new tab
             window.open(whatsappUrl, '_blank')
