@@ -1,0 +1,88 @@
+{
+  "simpleItem": {
+    "name": "Item Name (EN)",
+    "name_ar": "اسم المنتج (AR)",
+    "description": "Item description (EN)",
+    "description_ar": "وصف المنتج (AR)",
+    "price": 0,
+    "image": "item-image.jpg",
+    "tag": { "text": "Best Seller", "text_ar": "الأكثر مبيعاً", "variant": "best_seller" }
+  },
+  "itemWithPriceRange": {
+    "name": "Item Name (EN)",
+    "name_ar": "اسم المنتج (AR)",
+    "description": "Item description (EN)",
+    "description_ar": "وصف المنتج (AR)",
+    "price": [0, 0],
+    "image": "item-image.jpg"
+  },
+  "itemWithOptions": {
+    "name": "Item Name (EN)",
+    "name_ar": "اسم المنتج (AR)",
+    "description": "Item description (EN)",
+    "description_ar": "وصف المنتج (AR)",
+    "price": 0,
+    "image": "item-image.jpg",
+    "options": [
+      { "name": "Option 1 (EN)", "name_ar": "الخيار 1 (AR)", "price": 0 },
+      { "name": "Option 2 (EN)", "name_ar": "الخيار 2 (AR)", "price": 0 }
+    ]
+  },
+  "itemWithModifiers": {
+    "name": "Item Name (EN)",
+    "name_ar": "اسم المنتج (AR)",
+    "description": "Item description (EN)",
+    "description_ar": "وصف المنتج (AR)",
+    "price": 0,
+    "image": "item-image.jpg",
+    "modifiers": {
+      "modifier_group_key_here": {
+        "name": "Modifier Group Name (EN)",
+        "name_ar": "اسم مجموعة الإضافات (AR)",
+        "required": false,
+        "maxSelections": 1,
+        "options": [
+          { "name": "Modifier Option 1 (EN)", "name_ar": "إضافة 1 (AR)", "price": 0 },
+          { "name": "Modifier Option 2 (EN)", "name_ar": "إضافة 2 (AR)", "price": 0 }
+        ]
+      }
+    }
+  },
+  "itemWithOptionsAndModifiers": {
+    "name": "Item Name (EN)",
+    "name_ar": "اسم المنتج (AR)",
+    "description": "Item description (EN)",
+    "description_ar": "وصف المنتج (AR)",
+    "price": 0,
+    "image": "item-image.jpg",
+    "tag": { "text": "Most Ordered", "text_ar": "الأكثر طلباً", "variant": "most_ordered" },
+    "options": [
+      { "name": "Option 1 (EN)", "name_ar": "الخيار 1 (AR)", "price": 0 },
+      { "name": "Option 2 (EN)", "name_ar": "الخيار 2 (AR)", "price": 0 }
+    ],
+    "modifiers": {
+      "required_choice_key_here": {
+        "name": "Required Choice (EN)",
+        "name_ar": "اختيار إجباري (AR)",
+        "required": true,
+        "maxSelections": 1,
+        "options": [
+          { "name": "Choice 1 (EN)", "name_ar": "خيار 1 (AR)", "price": 0 },
+          { "name": "Choice 2 (EN)", "name_ar": "خيار 2 (AR)", "price": 0 }
+        ]
+      },
+      "extras_key_here": {
+        "name": "Extras (EN)",
+        "name_ar": "إضافات (AR)",
+        "required": false,
+        "maxSelections": 3,
+        "options": [
+          { "name": "Extra 1 (EN)", "name_ar": "إضافة 1 (AR)", "price": 0 },
+          { "name": "Extra 2 (EN)", "name_ar": "إضافة 2 (AR)", "price": 0 }
+        ]
+      }
+    }
+  }
+}
+
+

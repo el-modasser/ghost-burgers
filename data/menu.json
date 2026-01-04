@@ -1,0 +1,328 @@
+{
+    "beef_realm": {
+      "name": "Beef Realm",
+      "heroImage": "",
+      "items": [
+        {
+          "name": "Prince Hamlet",
+          "description": "Classic OG smash, cheddar with Ghost sauce.",
+          "price": 1100,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 200 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "King Hamlet",
+          "description": "OG smash stacked with caramelised onions and Ghost sauce.",
+          "price": 1150,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 200 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "The Candyman",
+          "description": "Onion jam, cheddar cheese, and The OJ sauce.",
+          "price": 1150,
+          "tag": { "text": "Best Seller", "text_ar": "الأكثر مبيعاً", "variant": "best_seller" },
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 200 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Smokelahoma",
+          "description": "Oklahoma-style burger with grilled onions pressed into the patty, swiss cheese, and Ghost sauce.",
+          "price": 1200,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 250 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "The Phantom",
+          "description": "Mushroom medley, Swiss cheese and Phantom sauce.",
+          "price": 1200,
+          "image": "",
+          "tag": { "text": "Most Ordered", "text_ar": "الأكثر مبيعاً", "variant": "most_ordered" },
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 250 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "The Phantom XL",
+          "description": "The Phantom with Carmalised Onions",
+          "price": 1250,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            },
+            "patty": {
+              "name": "Patty",
+              "required": false,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Double Up", "price": 250 }
+              ]
+            }
+          }
+        }
+      ]
+    },
+  
+    "ghost_buster_chicken": {
+      "name": "Ghost Buster Chicken",
+      "heroImage": "",
+      "items": [
+        {
+          "name": "Casper",
+          "description": "Crispy golden chicken, mayo, lettuce, pickles, and tomato.",
+          "price": 1200,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Ghost Buster",
+          "description": "Nashville-style chicken, pickles, Nash sauce, and Ghost apple slaw.",
+          "price": 1350,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "V For Vendetta",
+          "description": "Sweet & sour Korean chicken, sesame seeds, and Ghost slaw.",
+          "price": 1350,
+          "image": "",
+          "modifiers": {
+            "fries": {
+              "name": "Fries",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Regular", "price": 0 },
+                { "name": "Spicy", "price": 0 }
+              ]
+            }
+          }
+        }
+      ]
+    },
+  
+    "sides_of_sin": {
+      "name": "Sides of Sin",
+      "heroImage": "",
+      "items": [
+        {
+          "name": "Original Fries",
+          "description": "Golden, crispy, salted perfection.",
+          "price": 300,
+          "image": ""
+        },
+        {
+          "name": "Spicy Cajun Fries",
+          "description": "Dusted in Cajun fire.",
+          "price": 300,
+          "image": ""
+        },
+        {
+          "name": "Nash Style Loaded Fries",
+          "description": "Spicy fries, shredded Nash chicken, Nash sauce, pickles, Ghost slaw.",
+          "price": 950,
+          "image": ""
+        },
+        {
+          "name": "Korean Style Loaded Fries",
+          "description": "Original fries, Korean chicken, Ghost slaw, creamy white sauce.",
+          "price": 950,
+          "image": ""
+        },
+        {
+          "name": "Beef Loaded Fries",
+          "description": "Original fries, juicy smash beef, cheddar, and Ghost sauce.",
+          "price": 950,
+          "image": ""
+        },
+        {
+          "name": "Casper Tenders",
+          "description": "Classic Ghost tenders with a dip of your choice.",
+          "price": 450,
+          "image": ""
+        },
+        {
+          "name": "V For Vendetta Tenders",
+          "description": "Korean chicken tenders with Korean white sauce dip.",
+          "price": 450,
+          "image": ""
+        },
+        {
+          "name": "Ghost Busters Tenders",
+          "description": "Nashville chicken tenders with Nash sauce dip.",
+          "price": 450,
+          "image": ""
+        }
+      ]
+    },
+  
+    "elixirs_and_potions": {
+      "name": "Elixirs & Potions",
+      "heroImage": "",
+      "items": [
+        {
+          "name": "Ghost Ghohito Special",
+          "description": "Chilly popsicles and a dry ice ghohito.",
+          "price": 650,
+          "image": ""
+        },
+        {
+          "name": "Sweetly Hallows – Passion Mojito",
+          "description": "Tropical, zesty, and refreshing.",
+          "price": 600,
+          "image": ""
+        },
+        {
+          "name": "Bloody Mary – Strawberry Mojito",
+          "description": "Sweet rebellion with a cool twist.",
+          "price": 600,
+          "image": ""
+        }
+      ]
+    },
+  
+    "fresh_juices": {
+      "name": "Beetlejuice – Fresh Juices",
+      "heroImage": "",
+      "items": [
+        {
+          "name": "Fresh Juice",
+          "description": "Bright, bold, and full of life.",
+          "price": 400,
+          "image": "",
+          "modifiers": {
+            "flavor": {
+              "name": "Choose Your Poison",
+              "required": true,
+              "maxSelections": 1,
+              "options": [
+                { "name": "Orange", "price": 0 },
+                { "name": "Passion", "price": 0 },
+                { "name": "Mango", "price": 0 },
+                { "name": "Pineapple Mint", "price": 0 },
+                { "name": "Cocktail", "price": 0 },
+                { "name": "Pineapple", "price": 0 },
+                { "name": "Lemonade", "price": 0 }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+  

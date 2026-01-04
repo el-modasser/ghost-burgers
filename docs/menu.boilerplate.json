@@ -1,0 +1,83 @@
+{
+  "burgers": {
+    "name": "Burgers",
+    "name_ar": "البرجر",
+    "heroImage": "",
+    "items": [
+      {
+        "name": "Classic Burger",
+        "name_ar": "برجر كلاسيك",
+        "description": "Beef patty, lettuce, tomato, pickles, and house sauce.",
+        "description_ar": "لحم بقري، خس، طماطم، مخلل، وصوص خاص.",
+        "price": 8.99,
+        "image": "classic-burger.jpg"
+      },
+      {
+        "name": "Cheese Burger",
+        "name_ar": "تشيز برجر",
+        "description": "Classic burger with melted cheese.",
+        "description_ar": "برجر كلاسيك مع جبن ذائب.",
+        "price": 9.99,
+        "image": "cheese-burger.jpg",
+        "tag": { "text": "Best Seller", "text_ar": "الأكثر مبيعاً", "variant": "best_seller" },
+        "options": [
+          { "name": "Single", "name_ar": "سنجل", "price": 9.99 },
+          { "name": "Double", "name_ar": "دبل", "price": 13.99 }
+        ],
+        "modifiers": {
+          "side": {
+            "name": "Choose a side",
+            "name_ar": "اختر طبق جانبي",
+            "required": true,
+            "maxSelections": 1,
+            "options": [
+              { "name": "Fries", "name_ar": "بطاطس", "price": 0 },
+              { "name": "Onion Rings", "name_ar": "حلقات بصل", "price": 1.5 }
+            ]
+          },
+          "extras": {
+            "name": "Extras",
+            "name_ar": "إضافات",
+            "required": false,
+            "maxSelections": 3,
+            "options": [
+              { "name": "Extra Cheese", "name_ar": "جبن إضافي", "price": 1.0 },
+              { "name": "Jalapeño", "name_ar": "هالبينو", "price": 0.5 },
+              { "name": "Bacon", "name_ar": "بيكون", "price": 2.0 }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "drinks": {
+    "name": "Drinks",
+    "name_ar": "المشروبات",
+    "heroImage": "",
+    "items": [
+      {
+        "name": "Soft Drink",
+        "name_ar": "مشروب غازي",
+        "description": "Choose your favorite soft drink.",
+        "description_ar": "اختر مشروبك الغازي المفضل.",
+        "price": [1.5, 3.0],
+        "image": "soft-drink.jpg",
+        "options": [
+          { "name": "Small", "name_ar": "صغير", "price": 1.5 },
+          { "name": "Medium", "name_ar": "وسط", "price": 2.25 },
+          { "name": "Large", "name_ar": "كبير", "price": 3.0 }
+        ]
+      },
+      {
+        "name": "Water",
+        "name_ar": "ماء",
+        "description": "Bottled water.",
+        "description_ar": "مياه معبأة.",
+        "price": 1.0,
+        "image": "water.jpg"
+      }
+    ]
+  }
+}
+
+
