@@ -13,10 +13,7 @@ interface TagBadgeProps {
 export function TagBadge({ tag, language, size = 'sm', className }: TagBadgeProps) {
   const label = language === 'ar' && tag.text_ar ? tag.text_ar : tag.text
 
-  const styles: Record<
-    NonNullable<MenuItemTag['variant']>,
-    { wrap: string; icon: React.ReactNode }
-  > = {
+  const styles = {
     best_seller: {
       wrap: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white ring-1 ring-black/5',
       icon: <Star className="h-3.5 w-3.5" />
@@ -39,8 +36,11 @@ export function TagBadge({ tag, language, size = 'sm', className }: TagBadgeProp
     }
   }
 
-  const variant = tag.variant ?? 'custom'
-  const chosen = styles[variant]
+  const variantKey =
+    tag.variant && Object.prototype.hasOwnProperty.call(styles, tag.variant)
+      ? (tag.variant as keyof typeof styles)
+      : 'custom'
+  const chosen = styles[variantKey]
 
   return (
     <span

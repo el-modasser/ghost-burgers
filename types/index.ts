@@ -26,7 +26,7 @@ export interface MenuItemTag {
     text: string;
     text_ar?: string;
     /** Optional preset styling */
-    variant?: MenuItemTagVariant;
+    variant?: MenuItemTagVariant | string;
 }
 
 export interface MenuItem {
