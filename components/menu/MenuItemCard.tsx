@@ -132,7 +132,7 @@ export function MenuItemCard({
 
 
             <div className="p-5 col-span-2">
-                <div className="flex items-start justify-between gap-4 mb-2">
+                <div className="flex items-start flex-col justify-between gap-1 mb-2">
                     <div className="min-w-0">
                         <h3 className="text-lg font-bold text-gray-900 truncate">
                             {getText(item, 'name', language)}

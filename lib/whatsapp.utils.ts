@@ -59,7 +59,7 @@ export function composeWhatsAppMessage(
         }
 
         if (item.selectedModifiers && Object.keys(item.selectedModifiers).length > 0) {
-            message += `   ${language === 'en' ? 'Modifiers' : 'التعديلات'}:\n`
+            message += `   ${language === 'en' ? 'Customizations' : 'التعديلات'}:\n`
 
             Object.entries(item.selectedModifiers).forEach(([modifierGroupKey, selectedOptionNames]) => {
                 if (!selectedOptionNames || selectedOptionNames.length === 0) return
